@@ -1,12 +1,12 @@
-# Etapa 1: build con Maven
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+# Etapa 1: Construcción del proyecto
+FROM maven:3.8.1-openjdk-17 AS build
 WORKDIR /app
-COPY analisis /app
-WORKDIR /app
+COPY analisis/pom.xml .
+COPY analisis/src ./src
 RUN mvn clean package -DskipTests
 
-# Etapa 2: ejecución
-FROM eclipse-temurin:21-jdk
+# Etapa 2: Ejecución del proyecto
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/analisis-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
