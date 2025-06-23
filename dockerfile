@@ -1,14 +1,12 @@
-# Usa una imagen oficial de Java 21
-FROM eclipse-temurin:21-jdk
-
-# Crea directorio de trabajo dentro del contenedor
+# Etapa 1: build con Maven
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copia el archivo JAR compilado
-COPY target/analisis-0.0.1-SNAPSHOT.jar app.jar
-
-# Exponer el puerto 8080 (puerto default de Spring Boot)
+# Etapa 2: ejecución
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=build /app/target/analisis-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Comando de arranque
 ENTRYPOINT ["java", "-jar", "app.jar"]
