@@ -1,0 +1,59 @@
+# Compilados de Java
+*.class
+
+# Archivos de log
+*.log
+logs/
+!logs/.gitkeep
+
+# Archivos de paquetes
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Archivos de Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de bloqueo de Git
+*.lock
+
+# Archivos temporales
+*.tmp
+*.swp
+*.bak
+*.swo
+
+# Archivos de pruebas
+test-output/
