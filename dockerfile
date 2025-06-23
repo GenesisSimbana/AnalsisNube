@@ -3,10 +3,8 @@ FROM eclipse-temurin:21-jdk
 
 # Crea una carpeta dentro del contenedor
 WORKDIR /app
-
 # Copia el archivo JAR al contenedor
 COPY target/*.jar app.jar
-
 # Expón el puerto (opcional si usas 8080)
 EXPOSE 8080
 
